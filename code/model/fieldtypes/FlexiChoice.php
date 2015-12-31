@@ -9,8 +9,8 @@ class FlexiChoice extends Varchar
         return $field;
     }
 
-    public function __construct($name = null, $size = 255, $options = array()) {
+    public function __construct($name = null, $size = 255, $options = array())
+    {
         parent::__construct($name, $size, $options);
     }
-
 }

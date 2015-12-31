@@ -66,11 +66,10 @@ class FlexiChoiceField extends FormField
     public function setValue($value)
     {
         if (is_array($value)) {
-            foreach(array_intersect_key($value, $this->composite_fields) as $key => $val) {
+            foreach (array_intersect_key($value, $this->composite_fields) as $key => $val) {
                 $this->composite_fields[$key]->setValue($val);
             }
         } else {
-
             $val = ($value instanceof  FlexiChoice) ? $value->getValue() : $value;
 
             if (in_array($val, $this->composite_fields['Select']->getSource())) {
@@ -78,7 +77,6 @@ class FlexiChoiceField extends FormField
             } else {
                 $this->composite_fields['Text']->setValue($val);
             }
-
         }
 
         $this->value = ($this->composite_fields['Select']->Value()) ?  : $this->composite_fields['Text']->Value();
@@ -102,4 +100,3 @@ class FlexiChoiceField extends FormField
         }
     }
 }
-
